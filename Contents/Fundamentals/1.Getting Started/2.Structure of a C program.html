@@ -19,11 +19,7 @@
      <br>In the basic structure of a C program, 
      the main() function is the only mandatory component required for a program to compile and run.
         
-    </p>
-
-        <b>Don't brother or waste too much time on learning this.
-            <br>Just give it a glance and it will be fine, According to me.
-        </b>    
+    </p> 
 
     <p>
         There are totally 6 sections:
@@ -187,19 +183,214 @@
 
         </pre>
     <hr>
-    <h2 id="Section3">Definition Section: </h2>
-    
+    <h2 id="Section3"><u>Definition Section:</u></h2>
+        <p>Definition Section
+        
+            In C Programming, the Definition Section defines symbolic constants and 
+            macro expansions with the use of define directive.
+            Although it uses preprocessor directives, 
+            this section has its own unique stage following header file includes (#include). 
+            Its main purpose is to assign descriptive names to constant values or small pieces of code 
+            to make the program more readable, maintainable and editable.
+        
+        </p>
+
+        <h3>Core Components of the Definition Section</h3>
+        <pre style="font-family:inherit; font-size: inherit;">
+            This section defines macros.
+            
+            1.Symbolic Constants (Object-like Macros)
+                •Rather than having hard coded values (magic numbers), we can define a symbolic constant here. 
+                •The pre-processor will search through our source code and replace the macro name with the defined value.
+                • Syntax: #define CONSTANT_NAME value
+                • Example: #define PI 3.14
+
+            2. Macro Definitions (Function-like Macros)
+                •Short single-line pseudo functions can be defined which accept arguments. 
+                •There is no overhead of real function calls as they are expanded inline by the preprocessor.
+                • Syntax: #define MACRO_NAME(arguments) (expression)
+                • Example: #define SQUARE(x) ((x) * (x))                    
+        </pre>    
+        
+        <h3>Why do we need Definition Section?</h3>
+        <p>
+            Imagine a program consisting of 5000 lines of code. 
+            You have had to type in the tax rate (0.18) many times (say 180 times). 
+            Changing it to 0.22 is going to be a nightmare. 
+            By using #define TAX_RATE 0.18 in the Definition Section 
+            you just have to change it once at the beginning of your code.
+        </p>    
     <hr>
     
     <h2 id="Section4">Global Declaration Section: </h2>
-    
+        <h3>Definition: </h3>
+        <p>
+            The Global Declaration Section comes directly after the Definition Section and before the main() function.
+            This is where you can declare any variables and functions which will be used in various sections of your program. 
+            File scope is given to any variables or function prototypes declared here, 
+            meaning that they will be available and accessible to all functions below them in the file.
+        </p>
+        <h3>Core Components of the Global Declaration Section</h3>
+        <pre style="font-family: inherit; font-size: inherit;">
+            There are two key things to remember here.
+
+            1.Global Variables:
+            
+                Variables declared outside of any function.
+                They stay in the computers memory throughout the whole running of the program.
+                They also have a default value. 
+                Unlike local variables which will be filled with random garbage if not initialised, 
+                global ints and floats get initialised to 0 by the compiler.
+                
+            2.Function Prototypes (Declarations):
+
+                Function prototypes tell the compiler that there will be a function, 
+                what it will return and what arguments it will take.
+                C is a top-down language, meaning that if you try to call a function in main() 
+                that is at the bottom of the file you will get a warning/error. 
+                By declaring the function in the Global Declaration Section this problem will be solved.
+                
+        </pre>
+
+        <h3>The Risk of Global Variables:</h3>
+        <p>
+            Whilst the Global Declaration Section is an extremely useful tool, 
+            generally software engineers will try to avoid using global variables as they have the following issues:<br>
+            <br>
+            Debugging can become more difficult as any function can change the variable and 
+            therefore if it suddenly becomes corrupt it is difficult to tell which function is causing the issue.<br>
+            Global variables can cause Concurrency Issues if you have an advanced program that has 
+            multiple tasks running at the same time (multi-threading).<br>
+            They take up memory as they are stored from when the program starts until the program ends. 
+            Whereas local variables will be cleared once the function has finished.
+        </p>    
     <hr>
     
-    <h2 id="Section5">Main Function: </h2>
+    <h2 id="Section5"><u>Main Function:</u></h2>
+    <h3>Definition: </h3>
+    <p>
+        The Main Function Section is the absolute heart of every C program. 
+        It is the designated entry point where the operating system hands over control to your code, 
+        and where execution officially begins.<br>
+        No matter how large your program is—whether it has ten lines of code or ten million—
+        the computer will always search for int main() first and start executing instructions 
+    </p>
+    <h3>Standard Syntax </h3>
+    <pre>
+    A simple program:
+
+        int main(void) 
+        {
+            // Local Declarations 
+            int year=2009;
+
+            // Executable Statements 
+            printf("Hello World\n");
+
+            // Return Statement
+            return 0; 
+        }
+    </pre>
+    <p>
+        Let’s break down the syntax:<br><br>
+
+        • int: This lets the OS know that once the program has finished executing, 
+        an integer will be returned back to it.<br><br>
+
+        • main: This is a keyword that needs to be written exactly as shown with lower case letters. 
+        The compiler is looking for this name.<br><br>
+        
+        • (void) / (): This means that this function won’t take any inputs / arguments from the command line.<br><br>
+        
+        • { }: These are the start and end of the program.<br><br>
+        
+        • return 0;: This returns 0 back to the operating system. 
+        This will tell it that everything went fine with no crashes or errors. 
+        Any number which isn’t 0 (eg. 1/-1) will generally indicate there was an error.<br><br>
+    </p>  
     
+    <h3>Internal Structure of Main</h3>
+    <p>
+        
+        The code written inside your main() function would generally consist of two parts:<br><br>
+        1. Variable declaration section: This part would contain the declaration of all variables that are only required inside your main() function. These variables would not be accessible to any external sub-function.<br><br>
+        2. Execution Section: This section would include the looping, if/else statements, mathematical statements and function calls to other user defined functions.<br><br>
+    </p>
+    <h3>Another Variation of main Function</h3>
+    <p>While int main(void) is standard for basic programs, 
+        C allows the main function to accept inputs directly 
+        from the terminal when the program is launched. 
+        <br>This is written as:
+    </p>
+    <pre>
+        int main(int argc, char *argv[]) 
+        {
+            printf("Hello Worlds");
+            return 0;
+        }
+    </pre>
+    <p>
+        • argc (Argument Count): Counts how many items the user typed when running the program.<br><br>
+        • argv (Argument Vector): An array of strings containing the actual text typed by the user.<br><br>
+        Note:
+        <br>• The names argc and argv can be changed as you wish but you should not change anything else
+            (their data type or position).
+
+    </p>
+    <p>
+        • Exactly One main: You can only have one main function in an entire project. 
+        If you have two, the compiler will get confused and throw a "redefinition of main" error.<br><br>
+        • Implicit Return: In modern C standards (C99 and later), 
+        if you accidentally forget to write return 0; at the end of main, 
+        the compiler will automatically insert it for you behind the scenes. 
+        However, it is still best practice to write it explicitly.
+
+    </p>
     <hr>
     
-    <h2 id="Section6">Sub Program (User-Defined Functions): </h2>
-    
+    <h2 id="Section6"><u>Sub Program (User-Defined Functions):</u></h2>
+    <h3>Definition:</h3>
+    <p>
+        The last section of a C program is called the Subprogram Section (or User-Defined Function Section). 
+        This section is right at the bottom of your source code file, just below the main() function.<br>
+        This section contains the actual definitions of all the functions you have declared 
+        above in the Global Declaration Section.
+    </p>
+    <h3>Structure of a Subprogram: </h3>
+    <p>
+        Each user defined function has two sections:<br><br>
+        Function Header: This declares what type of value the function will return,
+         a unique name and parameters (inputs).<br><br>
+        Function Body: This is the part inside the curly braces { ... } 
+        which carries out some actions and may return a value.
+    </p> 
+    <p>Syntax: </p>   
+    <Pre>
+        return_type function_name(parameter_list) 
+        {
+            printf("Iam inside the function.");    
+        }
+    </Pre>    
+       
+    <h3>Why put it here?</h3>
+    <p>
+        Having your subprograms actual code at the bottom of your document has two key benefits:<br>
+
+        <br>Keeping your code clean and easy to read. 
+        When someone opens your file they can easily see what your 
+        main() function is doing by having it at the top of your code.
+
+        <br>Allows you to create complex programs by splitting a large problem into smaller pieces of code.
+    </p>
+
+    <h3>Things to Note:</h3>
+    <p>
+        1. Variables declared within a subprogram (e.g. float result) will be local variables. 
+        This means that the main() function will not be able to see them. 
+        Once the function has finished running they will be deleted from the computers RAM.
+        <br>
+        2. The function header will need to exactly match what you had in your Global Declaration Section. 
+        If the data types or amount of parameters don’t match then you will get an error from the compiler.
+    </p>
     <hr>
 </body>
