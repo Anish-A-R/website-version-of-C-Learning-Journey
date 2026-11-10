@@ -1,8 +1,117 @@
 <!DOCTYPE html>
 <head>
-    <title>What is and are the uses of C</title>
+    <title>Comments in C program</title>
 </head>
 
 <body>
-    <h1></h1>
+    <h1>Comments In C Program</h1>
+    <hr>
+    
+    <h2><u>What are Comments?</u></h2>
+    <p>
+        Comments are text that is not executed in C. 
+        These are used by humans so we can explain what certain parts of our code do, 
+        add notes and to aid in debugging.<br>
+        The preprocessor will remove these from the code when it is compiled. 
+        This means they have no affect on the size of the executable file, or how well it will run.
+    </p>
+    <hr>
+    <h2><u>Types of Comments in C: </u></h2>
+    <p>
+        C supports two primary styles of commenting: Single-line and Multi-line.<br><br>
+        <h3>1. Single-Line Comments (C99 Style):</h3>
+        <pre>
+        Syntax:
+            // This is a single-line comment
+        </pre>
+        These are commented lines that were introduced in C99 worldwide.<br>
+        They start with two forward slashes //. <br>
+        Any text after // will be ignored by the compiler until the end of the line.<br>
+        Best used for short comments before statements, or as inline/trailing comments.<br>
+    </p>
+    <b>Example: </b>
+    <pre>
+        #include <stdio.h>
+
+        int main() {
+            //Standalone comment
+            int age = 25; 
+
+            printf("Age: %d\n", age); // Inline comment
+            return 0;
+        }
+
+    </pre>
+    <p>
+        <h3>2. Multi-line comment (Traditional C style):</h3>
+            <br>
+        <pre>
+            Syntax:
+                  /* Hi,
+                         Hello */
+        </pre>
+            Multi-Line Comments are used in the original ANSI C standard (C89).<br>
+            They start with a forward slash and asterisk and end with an asterisk and forward slash.<br>
+            All text between these will be ignored.<br><br>
+            
+            Perfect for adding proper headers to your files,
+            or detailed explanation on how your algorithm works.<br> 
+            Can also be used to temporarily disable large chunks of code whilst debugging.
+    </p>
+    <b>Example: </b>
+    <pre>
+        #include <stdio.h>
+
+        /* 
+        * This is a multi-line comment block.
+        * It is highly useful for documenting complex structures,
+        * licensing rules, or function parameters.
+        */
+        void main() 
+        {
+            printf("Hello World");
+        }
+
+    </pre>
+    <hr>
+
+    <h2><u>Important behavioural rules and traps:</u></h2>
+    <h3>1. No Nested Multi-Line Comments:</h3>
+    <p>
+        You cannot nest multi-line comments. 
+        The compiler will match the first closing */ that it finds with the first opening /* that it sees. 
+        This will cause problems with your code.
+    </p>
+    <h4>Example:</h4>
+    <pre>
+        /*This is an outer comment
+        /* this is an inner comment */  &lt;--The compiler will stop commenting here.
+        This will cause a syntax error during compilation. Because this text is visible.*/
+    </pre>
+
+    <h3>2. Comments Inside Literal Strings: </h3>
+    <p>
+        However, if you include the comment markers (// or / /) within quotation marks
+         as part of a string then they will be treated as text rather than comments.
+    </p>
+    <h4>Example: </h4>
+    <img src="Comments Code.png" alt="Comment Code" > 
+    <img src="Comments Output.png" alt="Comment Output"> Output
+    
+    <h3>3. Line Splicing Danger (\):</h3>
+    <p>
+        When a single line comment ends with a backslash \,
+        then the C compiler will interpret the following line as part of the comment. <br>
+        This can cause real code to be destroyed by accident:
+    </p>
+    <h4>Example: </h4>
+    <img src="Line Splicing Code.png" alt="Line Splicing Code">
+    <img src="Line Splicing Output.png" alt="Line Splicing Output">
+    <hr> 
+
+
+
+
+
+
 </body>
