@@ -1,8 +1,205 @@
 <!DOCTYPE html>
 <head>
-    <title>What is and are the uses of C</title>
+
+    <title>Basic Structure Of C</title>
+
 </head>
 
 <body>
-    <h1></h1>
+    
+    <h1>Basic Structure of C Program:</h1>
+    <hr>
+    <h2><u>Introduction:</u></h2>
+    <p>
+
+     The structure of a C program is the way the components are arranged making it easier to read and understand.
+     C programs often consist of preprocessor directives, declarations, a main() function and user defined functions.
+     These are arranged depending on how they need to be for the specific program.
+     A good structure will make the program easier to develop, debug and maintain.
+     <br>In the basic structure of a C program, 
+     the main() function is the only mandatory component required for a program to compile and run.
+        
+    </p>
+
+        <b>Don't brother or waste too much time on learning this.
+            <br>Just give it a glance and it will be fine, According to me.
+        </b>    
+
+    <p>
+        There are totally 6 sections:
+        <ol>
+            
+            <li><a href="#Section1">Documentation Section.</a></li>
+            <li><a href="#Section2">Preprocessor Section.</a></li>
+            <li><a href="#Section3">Definition Section.</a></li>
+            <li><a href="#Section4">Global Declaration Section.</a></li>
+            <li><a href="#Section5">Main Function.</a></li>
+            <li><a href="#Section6">Subprogram (User-Defined Function).</a></li>
+            
+        </ol>
+    </p>
+   
+    <h3>Example:</h3>
+    
+    <p>This is a simple code to calculate the area of circle.</p>
+    <pre>              
+
+        /* =========================================================
+        1. DOCUMENTATION SECTION
+        Description: Calculates the area of a circle.
+        Author: XYZ
+        ========================================================= */
+
+
+
+        // 2. PREPROCESSOR SECTION
+        #include <stdio.h> 
+
+        // 3. DEFINITION SECTION
+        #define PI 3.14 
+
+        // 4. GLOBAL DECLARATION SECTION
+        float calculate_Area(float radius);
+
+        // 5. MAIN FUNCTION SECTION (Mandatory entry point)
+        int main()
+        {
+            float radius = 5.0;
+            float area;
+            
+            area = calculate_Area(radius);
+
+            printf("The area of the circle is: %.2f\n", area);
+            
+            return 0;
+        }
+
+        /* =========================================================
+        6. SUBPROGRAM SECTION (User-defined functions)
+        ========================================================= */
+        float calculateArea(float radius)
+        {
+            return PI * radius * radius;
+        }
+
+    </pre>
+    <p>Just copy paste in your editor, compile and run it...</p>
+    <p>This is a mystery code for now...</p>
+    <p>Soon you will undertand each line and if your deeply learning things you might even optimize it.</p>
+    <hr>
+
+    <!--main things are starting here.-->
+
+    <h2 id="Section1"><u>Documentation Section:</u></h2>
+        <h3>Definition: </h3>
+        <p> 
+            A C program will have a section called document. 
+            This goes at the top of your source file and contains comments 
+            that give information about your program.
+            Although the C compiler ignores this section, 
+            it's important to include it so the humans who will be reading, 
+            developing and maintaining your code understand what the code does.
+        </p>
+        
+        <h3>What are the things to include in the documentation section?</h3>
+        <pre style="font-family: inherit; font-size: inherit;">
+            A complete enterprise-grade documentation section is broken down into four core logical pillars:
+                • Identity & Ownership: Strict metadata defining the file name, author, department, and legal copyright boundaries.
+                • Functional Mechanics: Clear, high-level technical documentation explaining what the code does, its dependencies, hardware limitations, and operational complexity.
+                • Auditing & History: A clear changelog tracking versions, dates, developer handles, and bug tracking IDs (e.g., Jira ticket numbers).
+                • Lifecycle Status: Explicit tags indicating if the code is deprecated, experimental, or thread-safe.
+        </pre>
+
+        <h3>Example: </h3>
+        <p>A simple documentation using multi-line comments.</p>
+        <pre>
+            
+            /* 
+            * Title: Matrix Multiplication
+            * Author: Jane Doe
+            * Date: November 9, 2026
+            * Description: This program takes two 3x3 matrices from the user, 
+            *              multiplies them, and displays the result.
+            * Version: 1.0
+            */
+
+            #include <stdio.h>
+
+            int main() {
+                // Program logic goes here
+                return 0;
+            }
+
+        </pre>
+
+        <p>A Simple documentation using single-line comments.</p>
+    
+        <pre>
+            
+            // Title: Hello World Program
+            // Author: John Smith
+            // Date: November 9, 2026
+            // Description: A simple program to print 'Hello, World!' to the console.
+
+            #include <stdio.h>
+
+            int main() {
+                printf("Hello, World!");
+                return 0;
+            }
+
+        </pre>
+
+    <hr>
+    
+    <h2 id="Section2"><u>Preprocessor Section: </u></h2>
+       <h3>Definition: </h3>
+       <p>
+        Link / Preprocessor Section is the 1st working part of your C program. It prepares your code for compilation by using external utilities and libraries.
+        Prior to the computer translating your C code into an executable, your file will be scanned top to bottom by a special tool called the Preprocessor. 
+        The Preprocessor looks for the Preprocessor Section and runs instructions which begin with a hash (#).
+       </p> 
+       
+       <h3>The Anatomy of the Preprocessor Section: </h3>
+        <p>
+            In your code, the section looks like this:
+            <pre>#include &lt;stdio.h&gt;</pre>    
+        </p>
+        <p> 
+            This single line consists of two crucial parts:<br>
+            1. The #include Directive:<br> 
+            This is a direct command to the preprocessor that means, 
+            "Go find an external file, copy its entire contents, and paste them right here
+            into my code before compiling."<br>
+            2. The Header File (&lt;stdio.h&gt;):<br> 
+            This stands for Standard Input Output. 
+            It is a built-in system file that acts like a dictionary containing the blueprints for 
+            basic commands like printf() (used to print text to the screen) 
+            and scanf() (used to read user input from the keyboard).
+        </p>
+        <h3>Common Header Files You Will See in This Section</h3>
+        <pre style="font-family: inherit; font-size: inherit;">
+            Depending on what your program needs to do, you will add different toolboxes to this section:
+                • #include &lt;stdio.h&gt;> → For standard input/output (printf, scanf).
+                • #include &lt;math.h&gt; → For advanced math operations (square roots, powers, trigonometry).
+                • #include &lt;string.h&gt; → For manipulating text strings (copying, joining, or comparing text).
+                • #include &lt;stdlib.h&gt; → For memory allocation, random numbers, and process control.
+
+        </pre>
+    <hr>
+    <h2 id="Section3">Definition Section: </h2>
+    
+    <hr>
+    
+    <h2 id="Section4">Global Declaration Section: </h2>
+    
+    <hr>
+    
+    <h2 id="Section5">Main Function: </h2>
+    
+    <hr>
+    
+    <h2 id="Section6">Sub Program (User-Defined Functions): </h2>
+    
+    <hr>
 </body>
