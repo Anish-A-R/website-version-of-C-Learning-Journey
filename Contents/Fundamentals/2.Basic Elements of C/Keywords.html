@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<head>
+    <title>Keywords</title>
+</head>
+
+<body>
+    <h1>Keywords</h1>
+    <hr>
+    <h2><u>Definition: </u></h2>
+    <p>Keywords are pre-defined reserved words in C. They hold a special meaning within the compiler. 
+        Because they are fundamental to the language syntax you cannot use them as variables, 
+        functions, or structures.
+        The classic ANSI C standard (C89/C90) has 32 standard keywords. 
+        Newer standards such as C99, C11, C23 have extra reserved words.
+    </p>
+    <h2><u>The 32 Keywords:</u></h2>
+        <table border="1" cellpadding="6" cellspacing="0">
+        <thead>
+            <tr>
+            <th>Category</th>
+            <th>Keywords</th>
+            <th>Primary Purpose</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>Data Types &amp; Modifiers</td>
+            <td><code>char</code>, <code>double</code>, <code>float</code>, <code>int</code>, <code>long</code>, <code>short</code>, <code>signed</code>, <code>unsigned</code>, <code>void</code></td>
+            <td>Define the type, size, and sign of data a variable or function holds.</td>
+            </tr>
+            <tr>
+            <td>Control Flow &amp; Loops</td>
+            <td><code>break</code>, <code>case</code>, <code>continue</code>, <code>default</code>, <code>do</code>, <code>else</code>, <code>for</code>, <code>goto</code>, <code>if</code>, <code>return</code>, <code>switch</code>, <code>while</code></td>
+            <td>Direct program execution through decisions, loops, and jumps.</td>
+            </tr>
+            <tr>
+            <td>Storage Classes</td>
+            <td><code>auto</code>, <code>extern</code>, <code>register</code>, <code>static</code></td>
+            <td>Control variable scope, memory location, and lifetime.</td>
+            </tr>
+            <tr>
+            <td>User-Defined Types</td>
+            <td><code>enum</code>, <code>struct</code>, <code>typedef</code>, <code>union</code></td>
+            <td>Group variables together or create custom type aliases.</td>
+            </tr>
+            <tr>
+            <td>Type Qualifiers &amp; Operators</td>
+            <td><code>const</code>, <code>sizeof</code>, <code>volatile</code></td>
+            <td>Restrict variable modification, prevent compiler optimization, or measure memory size.</td>
+            </tr>
+        </tbody>
+        </table>
+        <hr>
+        <h2><u>Overview:</u></h2>
+        <h3 style="text-decoration: underline double;">1.Data Types & Modifiers:</h3>
+        <p>
+            These keywords determine how much memory is allocated to a variable and 
+            how the binary data within can be read.<br>
+            <b>These are the four basic data types:</b><br>
+            1.int: Stores whole numbers.<br>
+            2.char: Stores individual ASCII characters.<br>
+            3.float: Stores single precision decimals.<br>
+            4.double: Stores highly precise decimals.<br>
+            <br><br>
+            <b>These are used to manipulate the amount of the data stored:</b><br>
+            1.short: Used to reduce the amount of memory needed to store a number. 
+            For example short int will reduce memory usage for smaller numbers.<br>
+            2.long: Used to increase memory for very large numbers. 
+            For example long int or long double.<br><br>
+            <b>These lets you know if your variable can store negative numbers or not:</b><br>
+            1.Signed: If a variable is signed it can store positive and negative numbers.<br> 
+            2.Unsigned: Integers use all bits to store 0’s and positive numbers. Doubling the possible max positive number.<br>
+            <br>
+            <b>This is the last keyword that comes under this category:</b><br>
+            <b>Void</b>: It means no type. It is used when a function doesn’t return a value, or has no parameters. 
+            It can also be used to create a generic pointer (void ). 
+            This can point to any data type.
+        </p>
+        <h3 style="text-decoration: underline double;">2.Control Flow and Loops:</h3>
+        <p>
+            The following keywords can be used to control the flow of your code from top to bottom. 
+            This allows your programs to make decisions and repeat sections of code.<br><br>
+            <b>if/else:</b> <br>
+                This enables you to use conditional branches. 
+                Any code in the if block will only run if the condition evaluates to true. 
+                Any code in the else block will run if the condition evaluates to false.<br><br>
+            <b>switch/case/default:</b><br> 
+                This enables you to use multiple branches. 
+                The switch statement will evaluate the variable once and will then jump to the correct case label. 
+                If none of the cases match then it will go to the default.<br><br>
+            <b>for/while/do:</b><br> 
+                This enables you to loop. While checks the condition first. Do-while will always run once. For is a more compact way of initialising, checking and incrementing.
+                break/continue: This is used to control the flow of your loop. Break will immediately exit the loop or switch block. Continue will skip the rest of the current loop and will go to the next check.
+                return: This will exit the current function and return a value.<br><br>
+            <b>goto:</b> <br>
+                This will unconditionally jump to the labelled statement. 
+                Most developers will avoid using goto as it can make your code difficult to read. 
+                It is sometimes used in lower level system code to jump to a common error clean up section.
+        </p>
+
+        <h3 style="text-decoration: underline double;">3.Storage Classes: </h3>
+        <p>
+            The storage class defines how large the variable is, how long it can exist for, and where it will be stored.<br><br>
+                <b>1.auto:</b><br>
+                    This is the default storage class for all locally scoped variables declared inside a function. 
+                    The variable will be created at the start of the function and will be automatically destroyed at the end. 
+                    This keyword is very rarely typed.<br>
+                <b>2.static:</b><br>
+                    This keyword can be used in 2 ways. 
+                    If it is declared inside a function then it will retain its value between calls. 
+                    If it is declared outside of a function then it will limit the scope of a global variable/function. 
+                    By declaring static outside a function the variable/function will only be visible inside the .c file.<br>
+                <b>3.extern:</b><br>
+                    This is used to declare a global variable/function which has been defined in another source file. 
+                    This lets the compiler know the variable already exists somewhere else in memory. 
+                    This means multiple .c files can access the same data.<br>
+                <b>4.register:</b><br>
+                    This is a suggestion to the compiler to store a commonly used variable in a fast CPU register. 
+                    However modern compilers will allocate registers automatically so this keyword is largely obsolete.<br>
+        </p>
+
+        <h3 style="text-decoration: underline double;">4.User-Defined Types</h3>
+        <p>
+            C has features that allow the programmer to create their own data types.<br><br>
+            <b>1.struct:</b><br>
+                Structures allow multiple variables to be grouped with different data types. 
+                Each variable is stored separately so it is great for representing real-life objects. 
+                For example a student records or point co-ordinates.<br>
+            <b>2.union:</b><br>
+                Unions are similar to structs. 
+                However, each variable shares the same memory address. 
+                As only one variable can have a valid value at any one time unions are used in memory restrictive systems.<br>
+            <b>3.enum:</b><br>
+                Enumerations allow programmers to create their own data type made up of named integer constants. 
+                For example (enum Day { MON, TUE, WED }). 
+                Enums can be useful when trying to make code less confusing by using readable values instead of numbers.<br>
+            <b>4.typedef:</b><br>
+                This allows you to create an alias for existing data types. 
+                This is often used by developers to shorten long declarations. 
+                For example struct Student can be shortened to simply Student.<br>
+        </p>
+
+        <h3 style="text-decoration: underline double;">5. Type Qualifiers and Operators</h3>
+        <p>
+            These are keywords that enforce safety rules on variables or allow you to see memory.<br><br>
+                <b>1.const:</b><br>
+                    This forces the variable into a read only state, 
+                    and any attempt to alter it by any part of your code will cause the compiler to return an error message.<br>
+                <b>2.volatile:</b><br> 
+                    This keyword informs the compiler that the variable may change suddenly from external sources 
+                    (hardware sensors, interrupt service routines). 
+                    The compiler will not store the value in a register but instead constantly reads the value from memory.<br>
+                <b>3.sizeof:</b><br>
+                    This keyword seems like a function but is actually a compile time operator. 
+                    It will tell you the size in bytes of the data type or variable. 
+                    This is vital when making your code portable and 
+                    when dynamically allocating memory using functions such as malloc().<br>
+        </p>
+        <hr>
+
+        <h2><u>Important Rules for Using C Keywords: </u></h2>
+        <p>
+            <b>1.Case Sensitivity:</b><br>
+                C treats uppercase and lowercase letters as separate characters.
+                    whilst is a keyword but Whilst or WHILST can be used as variables.
+                    However, it is bad practice to do so.<br>
+            <b>2.No Redefinition:</b><br> 
+                    Keywords cannot be redefined using #define macros.
+                    They also cannot be used as function names, variable names or goto labels.<br>
+            <b>3.Underscored Keywords:</b><br>
+                    Modern standards of C (C99 to C23) have introduced keywords that start with an underscore and a capital letter (_Bool or _Atomic). 
+                    This was to prevent problems with existing codebases that had already used these words as variables (e.g. bool).<br>
+        </p>
+        <hr>
+
+</body>

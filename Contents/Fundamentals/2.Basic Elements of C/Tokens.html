@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<head>
+    <Title>Tokens</Title>
+</head>
+
+<h1>Tokens</h1>
+<hr>
+<h2><u>Definition:</u></h2>
+<p>
+    C tokens are the smallest elements in a program that have some meaning for the compiler. 
+    They can be thought of as the individual words and punctuation of a sentence.
+    When the C compiler is compiling your program it will break it down into tokens 
+    before checking any grammar and converting it to machine code.
+</p>
+
+<h2><u>The 6 Types of Tokens in C:</u></h2>
+<p>C classifies every token into one of six main categories:</p>
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Token Type</th>
+      <th>Description</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Keywords</td>
+      <td>Reserved words which have a fixed meaning and can’t be used as variable names</td>
+      <td><code>int</code>, <code>return</code>, <code>if</code>, <code>while</code>, <code>void</code></td>
+    </tr>
+    <tr>
+      <td>Identifiers</td>
+      <td>User defined names given to variables, functions and arrays</td>
+      <td><code>main</code>, <code>total</code>, <code>age</code>, <code>calculateSum</code></td>
+    </tr>
+    <tr>
+      <td>Constants</td>
+      <td>Constant values that do not change during program execution. (Also known as literals)</td>
+      <td><code>10</code>, <code>3.14</code>, <code>'A'</code>, <code>0x2a</code></td>
+    </tr>
+    <tr>
+      <td>Strings</td>
+      <td>A sequence of characters within double quotation marks.</td>
+      <td><code>"Hello"</code>, <code>"Enter a number"</code></td>
+    </tr>
+    <tr>
+      <td>Operators</td>
+      <td>Symbols that cause mathematical, relational or logical operations to occur</td>
+      <td><code>+</code>, <code>-</code>, <code>*</code>, <code>=</code>, <code>==</code>, <code>&amp;&amp;</code></td>
+    </tr>
+    <tr>
+      <td>Special Symbols</td>
+      <td>Punctuation and structural symbols</td>
+      <td><code>;</code>, <code>,</code>, <code>()</code>, <code>{}</code>, <code>[]</code></td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2><u>Example:</u></h2>
+<p>Consider this single line of C code:</p>
+<code>int sum = 10 + 20;</code>
+<p>
+    This statement will be divided into 7 tokens by the compiler as follows:
+    int is a keyword.
+    sum is an identifier.
+    = is an assignment operator.
+    10 is an integer constant.
+    + is an arithmetic operator.
+    20 is an integer constant.
+    ; is a special symbol (used to terminate a statement).
+</p>
+<p>
+    Not: Comments are not keywords they come under non-keywords.
+</p>
+<hr>
+
+<h2><u></u></h2>
