@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+    <Title>Character Set and Escape Sequences</Title>
+</head>
+
+<body>
+    <h1>Escape Sequences</h1>
+    <hr>
+    <h2><u>Definition: </u></h2>
+    <p>
+        Escape sequences are special sequences of characters in C that begin with a backslash (\)). 
+        They are used within character and string literals to include unprintable characters, 
+        perform formatting operations or to include characters that have special syntax meanings. 
+        Although escape sequences may appear to be made up of two or more characters 
+        they are converted by the C compiler into a single character 
+        (or in the case of universal character names, multiple bytes).
+    </p>
+
+    <h2><u>Why Escape Sequences Are Needed:</u></h2>
+    <p>
+        In C there are certain characters that can’t be typed into a string:<br>
+        1.Syntax issues: If you type a " (double quote) in your string it will confuse the compiler to think your string has finished.
+        <br>2.Control characters: There is no standard character to represent these actions such as moving the cursor to a new line, alert bell or to go back to the beginning of a line.
+        <br>3.Octal/Hexadecimal values: Sometimes programmers will want to place certain ASCII or Unicode values directly into memory. This can be done using Octal or Hexadecimal numbers.
+    </p>
+
+    <h2><u>Types of Escape Sequences in C:</u></h2>
+    <h3>1. Formatting and Control Sequences</h3>
+    <p>These sequences control how text is laid out on the console or terminal.</p>
+     <table>
+      <thead>
+        <tr>
+          <th>Sequence</th>
+          <th>Name</th>
+          <th>Function</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>\n</code></td>
+          <td>Newline</td>
+          <td>Moves the cursor down to the start of the next line.</td>
+        </tr>
+        <tr>
+          <td><code>\t</code></td>
+          <td>Horizontal Tab</td>
+          <td>Moves the cursor forward to the next horizontal tab stop.</td>
+        </tr>
+        <tr>
+          <td><code>\r</code></td>
+          <td>Carriage Return</td>
+          <td>Moves the cursor back to the beginning of the current line without advancing down.</td>
+        </tr>
+        <tr>
+          <td><code>\b</code></td>
+          <td>Backspace</td>
+          <td>Moves the cursor one position backward on the current line.</td>
+        </tr>
+        <tr>
+          <td><code>\a</code></td>
+          <td>Alert / Bell</td>
+          <td>Triggers an audible beep or visual flash on the terminal.</td>
+        </tr>
+        <tr>
+          <td><code>\v</code></td>
+          <td>Vertical Tab</td>
+          <td>Moves the cursor down to the next vertical tab stop (mostly legacy).</td>
+        </tr>
+        <tr>
+          <td><code>\f</code></td>
+          <td>Form Feed</td>
+          <td>Advances output to the next page (used primarily for older printers).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Punctuation and Delimiter Sequences</h3>
+    <p>These sequences allow you to print characters that otherwise have special roles in C syntax.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Sequence</th>
+          <th>Name</th>
+
+          <th>Function</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>\\</code></td>
+          <td>Backslash</td>
+          <td>Inserts a literal backslash character.</td>
+        </tr>
+        <tr>
+          <td><code>\"</code></td>
+          <td>Double Quote</td>
+          <td>Inserts a double quotation mark inside a string literal.</td>
+        </tr>
+        <tr>
+          <td><code>\'</code></td>
+          <td>Single Quote</td>
+          <td>Inserts a single quotation mark inside a character constant (e.g., <code>'\''</code>).</td>
+        </tr>
+        <tr>
+          <td><code>\?</code></td>
+          <td>Question Mark</td>
+          <td>Inserts a literal question mark to prevent accidental C trigraph interpretation in older standards.</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+
+</body>

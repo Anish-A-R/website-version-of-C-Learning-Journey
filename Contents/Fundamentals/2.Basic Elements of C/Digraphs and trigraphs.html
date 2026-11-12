@@ -1,0 +1,137 @@
+
+<head>
+    <title>Digraphs and Trigraphs</title>
+</head>
+
+<body>
+    <h1>Digraphs and trigraphs.</h1>
+    <hr>
+    <h2><u>Definition:</u></h2>   
+    <P>
+        Digraphs and trigraphs in C are two- and three-character sequences
+         that represent single punctuation characters or operators. 
+         They were originally created for older keyboards and international character sets
+         (such as ISO-646 or IBM mainframes) that lacked symbols like {, }, [, ], and #.
+    </P>
+    <h2><u>Trigraphs (Three-Character Sequences):</u></h2>
+    <p>
+        Trigraphs are sequences beginning with two question marks (??). 
+        They are expanded in the very first stage of compilation - even before comments or string literals. 
+        This means they are expanded unconditionally everywhere and can lead to obscure bugs 
+        if you have two question marks in a row, like "What??!" which will become "What|".
+    </p>
+    <h3>
+        <table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Trigraph</th>
+        <th>Equivalent Character</th>
+        <th>Character Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>??=</code></td>
+        <td><code>#</code></td>
+        <td>Number sign (hash)</td>
+      </tr>
+      <tr>
+        <td><code>??/</code></td>
+        <td><code>\</code></td>
+        <td>Backslash</td>
+      </tr>
+      <tr>
+        <td><code>??'</code></td>
+        <td><code>^</code></td>
+        <td>Caret</td>
+      </tr>
+      <tr>
+        <td><code>??(</code></td>
+        <td><code>[</code></td>
+        <td>Left square bracket</td>
+      </tr>
+      <tr>
+        <td><code>??)</code></td>
+        <td><code>]</code></td>
+        <td>Right square bracket</td>
+      </tr>
+      <tr>
+        <td><code>??!</code></td>
+        <td><code>|</code></td>
+        <td>Vertical bar (pipe)</td>
+      </tr>
+      <tr>
+        <td><code>??&lt;</code></td>
+        <td><code>{</code></td>
+        <td>Left curly brace</td>
+      </tr>
+      <tr>
+        <td><code>??&gt;</code></td>
+        <td><code>}</code></td>
+        <td>Right curly brace</td>
+      </tr>
+      <tr>
+        <td><code>??-</code></td>
+        <td><code>~</code></td>
+        <td>Tilde</td>
+      </tr>
+    </tbody>
+  </table>
+    <h3>Note: </h3>
+    <p>
+        Trigraphs have been officially deprecated in C-23 and are disabled by default in modern compilers, 
+        such as GCC and MSVC. 
+        They can be enabled using - trigraphs or /Zc:trigraphs.
+    </p>
+
+    <h2><u>Diagraphs(Two Character Sequence)</u></h2>
+    <p>
+        Digraphs were introduced in C95 and standardized in C99. 
+        They allow you to replace trigraphs safely and cleanly. 
+        Digraphs are processed during tokenization meaning that if they appear within string literals, 
+        character constants or comments they will not be replaced.
+    </p>
+
+     <table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Digraph</th>
+        <th>Equivalent Token</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>&lt;:</code></td>
+        <td><code>[</code></td>
+        <td>Left square bracket</td>
+      </tr>
+      <tr>
+        <td><code>:&gt;</code></td>
+        <td><code>]</code></td>
+        <td>Right square bracket</td>
+      </tr>
+      <tr>
+        <td><code>&lt;%</code></td>
+        <td><code>{</code></td>
+        <td>Left curly brace</td>
+      </tr>
+      <tr>
+        <td><code>%&gt;</code></td>
+        <td><code>}</code></td>
+        <td>Right curly brace</td>
+      </tr>
+      <tr>
+        <td><code>%:</code></td>
+        <td><code>#</code></td>
+        <td>Number sign (preprocessor directive)</td>
+      </tr>
+      <tr>
+        <td><code>%:%:</code></td>
+        <td><code>##</code></td>
+        <td>Preprocessor token pasting</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+</body>
