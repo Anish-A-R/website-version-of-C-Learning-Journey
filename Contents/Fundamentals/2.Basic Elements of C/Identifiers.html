@@ -2,3 +2,117 @@
 <head>
     <title>Identifiers</title>
 </head>
+
+<body>
+    <h1>Identifiers</h1>
+    <hr>
+    <h2><u>Definition:</u></h2>
+    <p>
+        Identifiers are unique names created by the user of some element in a C program 
+        such as variables, functions, arrays, structures, and labels. 
+        They are used to represent memory locations and sections of code 
+        where you can store, retrieve and manipulate data.
+    </p>
+    <h2><u>Rules for Naming Identifiers:</u></h2>
+    <p>
+        The C compiler has very strict rules about identifying identifiers. 
+        If you break any of these rules, then the code will not compile.
+        <br>1.Allowed characters:<br>
+        Only uppercase (A-Z), lowercase (a-z), numbers (0-9) and underscores (_) can be used in identifiers.<br>
+        Must start with letter/underscore, The first character must be a letter or an underscore. Numbers cannot be used at the beginning of identifiers.
+        <br>
+        2.No reserved keywords:<br>
+        You cannot use any of the built-in keywords such as int, return, while or void.<br>
+        3.Case sensitive:<br>
+        C is case sensitive so uppercase and lowercase letters are treated as separate. 
+            For example - total, Total and TOTAL would all be different identifiers.<br>
+        5.Spaces/hyphens/punctuation/symbols:<br>
+        Spaces, hyphens, punctuation and symbols such as @, $ or % cannot be used.<br>
+        4.Unique within scope<br>
+        No two entities can have the same identifier name in the same scope.
+    </p>
+    <h2>Example: </h2>
+        <table border="1">
+        <thead>
+            <tr>
+            <th>Identifier</th>
+            <th>Status</th>
+            <th>Reason</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>number</td>
+            <td>Valid</td>
+            <td>Uses only letters and starts with an alphabet.</td>
+            </tr>
+            <tr>
+            <td>__anishar__</td>
+            <td>Valid</td>
+            <td>Starts with an underscore and contains valid characters.</td>
+            </tr>
+            <tr>
+            <td>num1</td>
+            <td>Valid</td>
+            <td>Digits are allowed after the first character.</td>
+            </tr>
+            <tr>
+            <td>2ndnum</td>
+            <td>Invalid</td>
+            <td>Starts with a digit.</td>
+            </tr>
+            <tr>
+            <td>num-1</td>
+            <td>Invalid</td>
+            <td>Contains a hyphen (-), which is an illegal operator/character.</td>
+            </tr>
+            <tr>
+            <td>num 1</td>
+            <td>Invalid</td>
+            <td>Contains a blank space.</td>
+            </tr>
+            <tr>
+            <td>float</td>
+            <td>Invalid</td>
+            <td>float is a reserved C keyword.</td>
+            </tr>
+        </tbody>
+        </table>
+        <hr>
+        <h2>Character Length Limits</h2>
+        <p>
+            Although modern C compilers support long identifiers, 
+            there are minimum standards that specify how many characters 
+            a compiler must recognize.<br>
+            1.C89 / C90 Standard:<br>
+            Internal identifiers are guaranteed to be recognized up to 31 characters.
+            External identifiers are guaranteed to be recognized up to 6 characters.<br>
+            2.C99 and Newer Standards:<br>
+            Internal identifiers are guaranteed to be recognized up to 63 characters.
+            External identifiers are guaranteed to be recognized up to 31 characters.<br>
+            3.Modern Compilers:<br>
+            Modern compilers like GCC, Clang and Microsoft C 
+            usually support much longer identifiers 
+            (often 247 characters or unlimited).
+        </p>
+        
+        <h2>Demonstration</h2>
+        <h3>External Identifiers:</h3>
+        <img src="External_Identifier.png" alt="External Identifier">
+        <p>
+            This is due to the fact that Turbo C's compiler will only identify the first 31 characters 
+            of a variable name. <br>
+            As both variables are therefore the same in the first 31 characters
+             they are considered to be the same variable.<br>
+             <b>And hence the error</b>
+        </p>    
+        <h3>Internal Identifiers</h3>
+        <img src="Internal_Identifiers.png" alt="Internal Identifier">
+        <p>
+            This is due to the fact that Turbo C's compiler will only identify the first 63 characters 
+            of a variable name. <br>
+            As both variables are therefore the same in the first 63 characters
+             they are considered to be the same variable.<br>
+             <b>And hence the error</b>
+        </p>    
+    </body>
