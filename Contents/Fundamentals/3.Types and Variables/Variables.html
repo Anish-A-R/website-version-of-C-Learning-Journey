@@ -25,4 +25,108 @@
             3.Assignment - This is used to update the value of an existing variable. 
             You can change the value of a variable as many times as you like using the = operator.
     </p>
+
+    <h3>Simple Example: </h3>
+    <pre>
+        #include &lt;stdio.h&gt;
+        void main() {
+
+            int num; //Declaration
+            num = 10; //Assignment
+            num = 20; //Re-Assignment
+
+            int temp = 100; //Initialisation
+
+        }
+    </pre>
+    
+    <h3>Variable Declaration: </h3>
+    <p>
+        Declaration is when you give a variable a data type and name 
+        so the C compiler knows how much memory to allocate.<br>
+        <b>Syntax:</b><br>
+        <pre>
+            data_type varible_name; //For single declaration 
+            data_type var1,var2,...; //For mutiple declaration
+        </pre>
+        The OS will allocate the correct amount of bytes of memory. 
+        However, it will not wipe what was in there.
+        Any remaining binary data will remain in that section of RAM. 
+        This is known as a garbage value. 
+        If you try to read an uninitialised variable you will get unpredictable bugs.<br>
+        You can declare multiple variable of the same type on the same line 
+        by separating them by commas.
+    </p>
+
+    <h3>Variable Initialization: </h3>
+    <p>
+        Initialisation is simply giving a variable a starting value during declaration.<br>
+        This is important as it will overwrite any random garbage value stored in that location of memory. 
+        Almost every good C programmer will initialise their variables immediately as it helps to avoid any accidental errors.<br>
+        <b>Syntax:</b>
+        <pre>
+            data_type variable_name = initial_value;    
+        </pre>
+    </p>
+
+    <h3>Variable Assignment: </h3>
+    <p>
+        Assignment is the name given to putting a new value into an existing variable in memory. 
+        This is done using the single equals sign (=) which is known as the assignment operator.<br>
+        Flow:<br>
+        Note that " = " in C does NOT mean equals, it means take the value on the right of the equals sign 
+        and put it into the memory location on the left.<br>
+        Overwriting:<br>
+        The new value will totally overwrite the old value in the memory block.
+    </p>
+    <hr>
+    <h2>Some Concepts For Deeper Understanding</h2>
+    <h3>Lvalues And Rvalues: </h3>
+    <p>
+        
+        Every time you assign a variable, you're using lvalues and rvalues:<br>
+        <b>lvalue:</b><br>
+             Expressions that represent memory locations (i.e., variables like x). These can be on either side of =.<br>
+        <b>rvalue:</b><br>
+        Temporary values that have no memory address (i.e., constant values like 5 or mathematical expressions like x + 2). 
+        These can only be on the right-hand-side of =.<br>
+        <b>Why 5 = x; won't work:</b><br> 
+        Because 5 is an rvalue and has no memory box to put x into. 
+        (This is why C programmers will sometimes write if (5 == x) rather than if (x == 5). 
+        If they accidentally write if (5 = x), then they get a compiler error instead of silently overwriting x!)
+    </p>
+    <h3>Chained Assignment and Right-to-Left Associativity: </h3>
+    <p>
+        Assignments are expressions in C. <br>
+        The assignment expression x = 5 evaluates to the value assigned. 
+        The " = " operator also has right to left associativity.<br>
+        This means a = b = c = 10; is parsed to a = (b = (c = 10));
+        However you can not do this when initialising variables. <br>
+        <code>int a = b = c = 10;</code> will not compile unless b and c have been declared earlier. 
+        Instead, you would need to write <code>int a = 10, b = 10, c = 10; </code>
+        
+        <pre>
+           include &lt;stdio.h&gt;
+           void main()
+           {
+            /* 
+             int a = b = c = 10;
+             This will cause an error
+             But, The one below will not as we declared b, c and d
+            */
+            int b,c,d;
+            int a = b = c = d =10;
+            printf("%d %d %d %d", a,b,c,d);
+           }
+        </pre>
+    </p>
+    <h3>Comma Operator In Assignment: </h3>
+    <p>
+        The comma , acts as an operator that evaluates expressions from left to right and returns the last value.
+    </p>
+    <pre>
+        int x;
+        x = (1, 2, 3); // Equalates 1, then 2, then assigns 3 to x.
+    </pre>
+    <hr>
 </body>
