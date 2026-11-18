@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+    <Title>Data Types</Title>
+</head>
+
+<body>
+    <h1>Data Types</h1>
+    <hr>
+    <h2>Definition: </h2>
+    <p>
+        Data types are used in C programming that tells what kind of data a variable can hold. 
+        For example, integer, float, character, etc. 
+        Data types also tell the compiler how much space needs to be allocated for variables, 
+        and how to interpret the bits stored in binary form.
+    </p>
+    <b>This is just a overview... Dont get stressed by seeing them we will explore deeper in the future...</b>
+    <h2>Different Types: </h2>
+    <img src="Data Types in C.jpg" alt="Data Type in C">
+    <hr>
+    <h2>1. Basic (Primitive) Data Types: </h2>
+    <p>
+        These are basic types that can be used to store simple data. 
+        Depending on your system architecture (such as 32-bit or 64-bit) the size may vary slightly. 
+        However, they should be as follows by default.
+    </p>
+    <table border="1">
+        <thead>
+            <tr>
+            <th>Data Type</th>
+            <th>Size</th>
+            <th>Format</th>
+            <th>Description</th>
+            <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>int</td>
+            <td>4 bytes</td>
+            <td>%d or %i</td>
+            <td>Used to store whole numbers.</td>
+            <td><code>int age = 25;</code></td>
+            </tr>
+            <tr>
+            <td>float</td>
+            <td>4 bytes</td>
+            <td>%f</td>
+            <td>Used to store fractional numbers (single precision, up to 6-7 decimal places).</td>
+            <td><code>float price = 19.99;</code></td>
+            </tr>
+            <tr>
+            <td>double</td>
+            <td>8 bytes</td>
+            <td>%lf</td>
+            <td>Used to store fractional numbers (double precision, up to 15 decimal places).</td>
+            <td><code>double pi = 3.1415926535;</code></td>
+            </tr>
+            <tr>
+            <td>char</td>
+            <td>1 byte</td>
+            <td>%c</td>
+            <td>Used to store one character/letter/ASCII value surrounded by single quotation marks.</td>
+            <td><code>char grade = 'A';</code></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>2. Derived Data Types: </h3>
+    <p>
+        Derived data types are formed from basic data types and allow for advanced functionality.<br>
+            Arrays - <br>
+            A fixed sized list of elements all of the same data type (int scores[5];).<br>
+            Pointers - <br>
+            Store the memory location of another variable (int ptr = &age;).<br>
+            Functions - <br>A block of code which can be reused and will return a particular data type (int add(int a, int b)).
+    </p>
+
+    <h3>3.User-Defined Data Types: </h3>
+    <p>
+        C allows for the creation of user-defined data types to store related information.<br>
+            Structure (struct): <br>
+            This stores multiple variables of varying data types within one structure. 
+            For example, we can store information about a student such as their name (char[]), age (int), GPA (float).<br>
+            Union (union): <br>
+            Works similar to a struct but all members of the union occupy the same location in memory. 
+            Therefore only one member can have a value at once.<br>
+            Enumeration (enum): <br>
+            Used to create readable names for integer constants. 
+            (enum Days {MON, TUE, WED};)<br>
+    </p>
+
+    <h3>4.The void Data Type</h3>
+    <p>
+        Void means no value. There are 3 main uses for it:<br>
+        Function Return Type: <br>
+        Means that a function will have no return value.<br>
+        Function Parameters: <br>
+        Means that a function will not take any arguments.<br>
+        Generic Pointers: <br>
+        A void pointer can store the memory address of any data type.<br>
+    </p>
+    <hr>
+</body> 
