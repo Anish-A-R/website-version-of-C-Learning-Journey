@@ -2,3 +2,75 @@
 <head>
     <title>Integers</title>
 </head>
+
+<body>
+    <h1>Integers</h1>
+    <hr>
+    <h2>Definition: </h2>
+    <p>
+        Stores whole numbers. 
+        On a 32-bit/4-byte system, or 64-bit system, will take up 4 bytes (32 bits) of memory. 
+        Can store values ranging from -2,147,483,648 to 2,147,483,647. 
+        You can manipulate how many bytes of memory are used to store the integer, 
+        and if it can store negative numbers, 
+        by adding type modifiers to the front of int. 
+        (short, long, signed, unsigned)
+    </p>
+        <pre>
+            <b>Syntax:</b>
+                [Type_modifier] [size_modifier] int variable_name = value;
+        </pre>
+    <p>
+            1.Declaring Integers:<br>
+            To declare a variable in C, 
+            we give it a type and a name.<br> 
+            For example: int age;. <br><br>
+            2.Assignment:<br>
+            We can assign it a value by adding ‘=’ and the value.<br> 
+            For example: int age = 25;<br>
+            If you already declared just use age=25;<br><br>
+            3.No decimal points:<br>
+            Integers can not have decimal points. 
+            If we were to store 12.99 in an integer variable, 
+            in C it will round down to 12.
+    </p>
+
+    <h2>Type Modifiers  </h2>
+    <p>
+        In C, signed and unsigned are type specifiers used to dictate 
+        if a variable can store negative values or only non-negative values 
+        (0 and positives).
+    </p>
+    <h3>1. Signed Integers (signed int)</h3>
+    <p>
+        Can hold negative values, 0 and positive values.<br>
+        Default:<br>
+        As standard, integer variables in C are signed integers. 
+        Therefore declaring int x; is the same as declaring signed int x;.<br>
+        Memory usage:<br>
+        Within a standard 4 byte (32-bit) signed int, 
+        the left most bit (bit 1) is used to represent 
+        if the number is positive or negative. 
+        This leaves 31 bits to represent the number.<br>
+        Range of values (4 bytes):<br>
+        -2147483648 to +2147483647.<br>
+        Format Specifier:<br>
+        %d or %i<br>
+    </p>
+    <b>Example: </b>
+    <pre>
+        int a = -45; 
+        signed int b = -45; 
+        signed c = 100; 
+    </pre>
+    
+    <h3>2.Unsigned integer (unsigned int): </h3>
+    <p>
+        An unsigned integer can be used to represent only positive values and 0.
+        As there is no need for one bit to be allocated for the sign of the number, 
+        all bits available in memory are used to store the magnitude of the number. 
+        This means that the maximum positive value storable in an unsigned integer 
+        is twice as large as a signed integer of the same size.
+    </p>
+    
+</body>
