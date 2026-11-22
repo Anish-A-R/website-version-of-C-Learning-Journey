@@ -72,5 +72,69 @@
         This means that the maximum positive value storable in an unsigned integer 
         is twice as large as a signed integer of the same size.
     </p>
+    <p>
+        Memory:<br>
+        No sign bit, so the value in decimal will be a positive number. 
+        All 32 bits can be used.<br>
+        Range (for a 4 byte variable):<br>
+        Between 0 and 4294967295 ( 0 to 2³²-1).<br>
+        Specifiers:<br>
+        %u (Or hex with %x, or Octal with %o.)<br>
+    </p>
+    <b>Example:</b>
+    <pre>
+        unsigned int a = 10;
+        unsigned a = 10;
+    </pre>
+        <hr>
+    <h2>Exceptions: </h2>
+    <p>
+        When playing with numbers in C, make sure about the range in each and every case.
+        If not properly checked this may lead to UB(undefined behaviour).
+    </p>
+    <h3>1.Signed Overflow/Underflow: </h3>
+    <p>
+        An overflow/underflow of signed integers in C results in undefined behaviour. 
+        This means that there is no specification within the C language governing 
+        what happens when a value is calculated for a signed integer 
+        that cannot be represented by the integer type.
+    </p>
+    <h4>How It Happens: </h4>
+    <p>
+        Overflow: <br>The result of an arithmetic operation exceeds the maximum possible value of the data type.<br>
+        Underflow: <br>The result of an arithmetic operation is less than the minimum possible value of the data type.
+    </p>
+    <h4>Example: </h4>
+    <img src="code.png" alt="The Code">
+    <img src="output.png" alt="What happens when overflow and underflow happens">
+    <p>
+        <b>Small explanation: <br></b>
+        Overflow:<br>
+            a = 2147483647 (maximum value of a 32-bit signed integer).
+            When increased by 1, as we have exceeded the maximum limit of 32-bit signed integers, 
+            the binary representation of the number wraps around. 
+            This causes underflow to occur and returns -2147483648.<br>
+        Underflow:<br>
+            b = -2147483648 (minimum value of a 32-bit signed integer).
+            When decreased by 1, as we have exceeded the minimum limit of 32-bit signed integers, 
+            the binary representation of the number wraps around. 
+            This causes overflow to occur and returns 2147483647.<br>
+    </p>
+    <h4>Let me tell you a secret: </h4>
+    <p>
+        1.The number of views videos have on YouTube was originally stored as a 32-bit signed integer,
+         meaning it could count up to a maximum of 2,147,483,647 views. 
+         However, in December 2014, PSY's Gangnam Style reached this number and 
+         caused an overflow error. 
+         The counter was upgraded to a 64-bit signed integer, 
+         allowing up to 9,223,372,036,854,775,807 views.<br>
+        2.This number also causes the Year 2038 Problem. 
+        As older systems store the time since 1970 in a 32-bit integer, 
+        on January 19th 2038, they will overflow causing a reset to year 1901!
+    </p>
+    <!--TODO: Link this area with an external page where i can add all the errors relatted to integers.-->
+    <h3> There is a hell a lot of exceptions. I will cover them later.</h3>
+    <hr>
+    <h2>Size Modifiers: </h2>
     
 </body>
