@@ -105,8 +105,8 @@
         Underflow: <br>The result of an arithmetic operation is less than the minimum possible value of the data type.
     </p>
     <h4>Example: </h4>
-    <img src="code.png" alt="The Code">
-    <img src="output.png" alt="What happens when overflow and underflow happens">
+    <img src="UB_Over_and_Underflow_Code.png" alt="The Code">
+    <img src="UB_Over_and_Underflow_Output.png" alt="What happens when overflow and underflow happens">
     <p>
         <b>Small explanation: <br></b>
         Overflow:<br>
@@ -136,5 +136,230 @@
     <h3> There is a hell a lot of exceptions. I will cover them later.</h3>
     <hr>
     <h2>Size Modifiers: </h2>
-    
+    <h3>Defintion: </h3>
+    <p>
+        int types in C also have different sizes. 
+        You can create long ints, short ints, long long ints. 
+        As well as changing how much memory is used by the variable, 
+        it also changes the range. 
+        They can be signed or unsigned.
+    </p>
+    <h3>Overview:</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Data type</th>
+                <th>Size (bytes)</th>
+                <th>Minimum value</th>
+                <th>Maximum value</th>
+                <th>Output format</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>short int or short</td>
+                <td>2</td>
+                <td>-32768</td>
+                <td>32767</td>
+                <td>%hd</td>
+            </tr>
+            <tr>
+                <td>int</td>
+                <td>4</td>
+                <td>-2147483648</td>
+                <td>2147483647</td>
+                <td>%d or %i</td>
+            </tr>
+            <tr>
+                <td>long int or long</td>
+                <td>4 (32-bit)<br>8 (64-bit)</td>
+                <td>-2<sup>31</sup><br>-2<sup>63</sup></td>
+                <td>2<sup>31</sup> - 1<br>2<sup>63</sup> - 1</td>
+                <td>%ld</td>
+            </tr>
+            <tr>
+                <td>long long int or long long</td>
+                <td>8</td>
+                <td>-9223372036854775808</td>
+                <td>9223372036854775807</td>
+                <td>%lld</td>
+            </tr>
+        </tbody>
+    </table>
+    <b>
+        Note: <br>
+        This will vary depending on the compiler and system.<br>
+        1.In Linux 64-bit and macOS , long is 8 bytes.<br> 
+        2.In Windows 64-bit ,long is 4 bytes.
+    </b><br>
+
+    <h3>Combining Size and Sign Modifiers: </h3>
+    <p>
+        All sizes can be used as signed or unsigned:<br>
+        1.Signed (default):<br>
+        The MSB will act as sign bit (2’s complement in modern CPUs). 
+        If we write signed long int we get the same result as long.<br>
+        2.Unsigned:<br>
+        All bits represent data allowing for double positive numbers 
+        (i.e. range extended from negative/positive to 0/double positive).
+    </p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Type Combination</th>
+                <th>Typical Size</th>
+                <th>Minimum Value</th>
+                <th>Maximum Value</th>
+                <th>printf Specifier</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>short / signed short</td>
+                <td>2 bytes</td>
+                <td>-32,768</td>
+                <td>32,767</td>
+                <td>%hd</td>
+            </tr>
+            <tr>
+                <td>unsigned short</td>
+                <td>2 bytes</td>
+                <td>0</td>
+                <td>65,535</td>
+                <td>%hu</td>
+            </tr>
+            <tr>
+                <td>int / signed int</td>
+                <td>4 bytes</td>
+                <td>-2,147,483,648</td>
+                <td>2,147,483,647</td>
+                <td>%d or %i</td>
+            </tr>
+            <tr>
+                <td>unsigned int</td>
+                <td>4 bytes</td>
+                <td>0</td>
+                <td>4,294,967,295</td>
+                <td>%u</td>
+            </tr>
+            <tr>
+                <td>long </td>
+                <td>8 bytes</td>
+                <td>-9.22 &times; 10<sup>18</sup></td>
+                <td>9.22 &times; 10<sup>18</sup></td>
+                <td>%ld</td>
+            </tr>
+            <tr>
+                <td>unsigned long </td>
+                <td>8 bytes</td>
+                <td>0</td>
+                <td>1.84 &times; 10<sup>19</sup></td>
+                <td>%lu</td>
+            </tr>
+            <tr>
+                <td>long long</td>
+                <td>8 bytes</td>
+                <td>-9.22 &times; 10<sup>18</sup></td>
+                <td>9.22 &times; 10<sup>18</sup></td>
+                <td>%lld</td>
+            </tr>
+            <tr>
+                <td>unsigned long long</td>
+                <td>8 bytes</td>
+                <td>0</td>
+                <td>1.84 &times; 10<sup>19</sup></td>
+                <td>%llu</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Suffix: </h3>
+    <p>
+        A suffix can be added to a literal integer in C, 
+        such as 100U, 500L, 42ULL to define what type, 
+        and hence size, of integer it is.<br>
+        By default, if no suffix is added to an integer, 
+        for example 10, 
+        it will be considered to be of type int (typically 32-bit signed). 
+        However, adding a suffix changes this.
+    </p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Suffix</th>
+                <th>Data Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>(no suffix)</td>
+                <td>int</td>
+                <td>Default signed integer</td>
+            </tr>
+            <tr>
+                <td>U/u</td>
+                <td>unsigned int</td>
+                <td>Unsigned integer</td>
+            </tr>
+            <tr>
+                <td>L/l</td>
+                <td>long int</td>
+                <td>Long signed integer (can be 4 bytes or 8 bytes depending on OS)</td>
+            </tr>
+            <tr>
+                <td>UL/LU</td>
+                <td>unsigned long int</td>
+                <td>Long unsigned integer</td>
+            </tr>
+            <tr>
+                <td>LL/ll</td>
+                <td>long long int</td>
+                <td>Signed integer (64 bits)</td>
+            </tr>
+            <tr>
+                <td>ULL/LLU</td>
+                <td>unsigned long long int</td>
+                <td>Unsigned integer (64 bits)</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        Note:<br>
+        There are no suffixes to create short integers in C. 
+        Any literal integer e.g. 5, 
+        will be considered to be an int. 
+        Therefore if stored in a short variable,
+         it will be implicitly cast.
+    </p>
+    <h4>Why to use it???</h4>
+    <p>
+        The data type of an expression in C depends on the data types 
+        of the values being used in the expression.
+        So ‘long long total = a*b’ will evaluate ‘a*b’, 
+        according to the data types in a and b, 
+        and then convert the final value to have data type long long. 
+        The suffix is required to ensure that:<br>
+        (i)Avoid overflow in calculations.<br>   
+        By making one literal value have data type LL, 
+        we ensure all calculations in that expression are done 
+        using 64 bits, so no overflow occurs.
+
+    </p>
+
+    <h4>When to use it???</h4>
+    <p>Multiplications & Math That Exceed 32-Bit int
+    If multiplying or adding integer literals results in a number larger 
+    than 2,147,483,647, then at least one of the literals 
+     should be suffixed with LL (or ULL).
+    </p>
+    <b>Example: </b><br>
+    <img src="Size_Specifier_Wrng_Code.png" alt="This is a wrong code!!!">
+    <img src="Size_Specifier_Wrng_Code_Output.png" alt="This is the output for the wrong code!!!">
+    <p>
+        Just from above we can see that even though the size is long long, there is an integer overflow.
+        The Fix: We just have to add a suffix to the end of any one number.
+    </p>
+    <img src="Size_Specifier_Correct_Code.png" alt="This is the corrected version of the above code">
+    <img src="Size_Specifier_Correct_Code_Output.png" alt="This the expected or the correct output.">
+    <hr>
 </body>
